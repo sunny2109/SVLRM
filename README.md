@@ -29,7 +29,7 @@ python test.py --upscaling_factor 8 --model weights/X8/model_195000_iter.pth
 
 ## Results
 
-- X8
+- X8 depth sr
 
 on the left is output of the model, on the right is the corresponding ground truth image
 <img src="./results/X8/001065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
