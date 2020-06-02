@@ -12,6 +12,7 @@
 
 ## Training
 I trained and tested the model on a single NVIDIA 2080Ti GPU, and it takes about 2 days for 20w iterations.The training strategy is the same as paper.
+
 '''bash
 #x4
 python train.py --upscaling_factor 4
@@ -22,6 +23,7 @@ python train.py --upscaling_factor 16
 '''
 
 ## Testing
+
 '''bash
 python test.py --upscaling_factor 8 --model weights/X8/model_130000_iter.pth
 '''
