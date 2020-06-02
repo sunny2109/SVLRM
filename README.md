@@ -29,7 +29,7 @@ python test.py --upscaling_factor 8 --model weights/X8/model_195000_iter.pth
 
 ## Results
 
-- qualitative results (RMSE)
+- quantitative results (RMSE)
 
 | depth image SR | SVLRM (paper) | Ours | 
 | :----- | :-----: | :-----: | 
