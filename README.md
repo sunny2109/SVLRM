@@ -39,6 +39,7 @@ qualitative results(RMSE)
 | x16 | 7.23 | -- | 
 
 visual results
+
 on the left is output of the model, on the right is the corresponding ground truth image
 <img src="./results/X8/001065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
 RMSE:3.2915470145958894 || PSNR:37.78280235489618 || SSIM:0.9761888256026665
