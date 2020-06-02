@@ -35,16 +35,16 @@ on the left is output of the model, on the right is the corresponding ground tru
 <img src="./results/X8/001065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
 RMSE:3.2915470145958894 || PSNR:37.78280235489618 || SSIM:0.9761888256026665
 
-<img src="./results/X8/001101.png.png" width="400"/> <img src="./results/gt/001101.png.png" width="400"/>
+<img src="./results/X8/001101.png" width="400"/> <img src="./results/gt/001101.png" width="400"/>
 RMSE:5.210280611855403 || PSNR:33.79358133117786 || SSIM:0.9628326188482944
 
-<img src="./results/X8/001215.png.png" width="400"/> <img src="./results/gt/001215.png.png" width="400"/>
+<img src="./results/X8/001215.png" width="400"/> <img src="./results/gt/001215.png" width="400"/>
 RMSE:4.1548492643583925 || PSNR:35.75969815984982 || SSIM:0.9701610108526342
 
-<img src="./results/X8/001320.png.png" width="400"/> <img src="./results/gt/001320.png.png" width="400"/>
+<img src="./results/X8/001320.png" width="400"/> <img src="./results/gt/001320.png" width="400"/>
 RMSE:6.202878047820046 || PSNR:32.278938753328994 || SSIM:0.9564319583736038
 
-<img src="./results/X8/001436.png.png" width="400"/> <img src="./results/gt/001436.png.png" width="400"/>
+<img src="./results/X8/001436.png" width="400"/> <img src="./results/gt/001436.png" width="400"/>
 RMSE:4.407425071944234 || PSNR:35.24710485172616 || SSIM:0.9789862490518304
 
 ## Acknowledgements
