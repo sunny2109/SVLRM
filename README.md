@@ -30,7 +30,15 @@ python test.py --upscaling_factor 8 --model weights/X8/model_195000_iter.pth
 ## Results
 
 - X8 depth sr
+qualitative results(RMSE)
 
+| depth image SR | SVLRM(paper) | Ours | 
+| :----- | :-----: | :-----: | 
+| x4 | 1.74 | -- |
+| x8 | 5.59 | 5.001 | 
+| x16 | 7.23 | -- | 
+
+visual results
 on the left is output of the model, on the right is the corresponding ground truth image
 <img src="./results/X8/001065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
 RMSE:3.2915470145958894 || PSNR:37.78280235489618 || SSIM:0.9761888256026665
