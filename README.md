@@ -24,7 +24,7 @@ python train.py --upscaling_factor 16
 ## Testing
 
 ```bash
-python test.py --upscaling_factor 8 --model weights/X8/model_130000_iter.pth
+python test.py --upscaling_factor 8 --model weights/X8/model_195000_iter.pth
 ```
 
 ## Results
