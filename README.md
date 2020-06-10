@@ -54,9 +54,9 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 
 | depth image SR | SVLRM (paper) | Ours | 
 | :----- | :-----: | :-----: | 
-| x4 | 1.74 | -- |
-| x8 | 5.59 | 5.001 | 
-| x16 | 7.23 | -- | 
+| x4 | 1.74 | 1.66738 |
+| x8 | 5.59 | 3.20587 | 
+| x16 | 7.23 | 5.82709 | 
 
 - Visual results (X8 depth sr)
 
@@ -65,7 +65,7 @@ on the left is output of the model, on the right is the corresponding ground tru
 
 img_001065 || RMSE:2.7260 || PSNR:39.4204 || SSIM:0.9820
 
-<img src="./results/X8101.png" width="400"/> <img src="./results/gt/001101.png" width="400"/>
+<img src="./results/X8/101.png" width="400"/> <img src="./results/gt/001101.png" width="400"/>
 
 img_001101 || RMSE:3.9308 || PSNR:36.2413 || SSIM:0.9749
 
