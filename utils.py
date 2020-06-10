@@ -19,7 +19,7 @@ def print_network(net):
     print(net)
     print('Total number of parameters: {}'.format(num_params))
 
-def save_model(model, current_iter, snapshot_dir, upscaling_factor):
+def save_model(model, epoch, snapshot_dir, upscaling_factor):
     if isinstance(model, torch.nn.DataParallel):
         model_state_dict = model.module.state_dict()
     else:
@@ -30,7 +30,7 @@ def save_model(model, current_iter, snapshot_dir, upscaling_factor):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     
-    torch.save(model.state_dict(), save_dir +'/'+ 'model_{:09d}_iter.pth'.format(current_iter))
+    torch.save(model.state_dict(), save_dir +'/'+ 'model_{:03d}_epoch.pth'.format(epoch))
     print('The SR model is saved.')
 
 
@@ -63,7 +63,7 @@ def save_img(img, img_name, result_save_dir, upscaling_factor):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
         
-    save_fn = save_dir +'/'+ img_name
+    save_fn = save_dir +'/'+ '{:03d}.png'.format(img_name)
     cv2.imwrite(save_fn, save_img)
     print('Saving!')
 
@@ -96,6 +96,13 @@ def calc_rmse(img1, img2):
     mse = np.mean((img1 - img2)**2)
     rmse = math.sqrt(mse)
     return rmse, mse
+
+def calc_rmse_tensor(img1, img2):
+    img1 = torch.clamp(img1, 0, 1) * 255
+    img2 = torch.clamp(img2, 0, 1) * 255
+    mse = torch.mean((img1 - img2) ** 2)
+    return torch.sqrt(mse)
+
 
 def calc_psnr(img1, img2):
     # img1 and img2 have range [0, 255]
@@ -204,5 +211,3 @@ class logger_print(object):
 
     def flush(self):
         pass
-
-
