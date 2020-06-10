@@ -40,7 +40,12 @@ python train.py --upscaling_factor 16
 ## Testing
 
 ```bash
+#x4
+python test.py --upscaling_factor 4 --model weights/X4/model_10000_epoch.pth
+#x8
 python test.py --upscaling_factor 8 --model weights/X8/model_10000_epoch.pth
+#x16
+python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 ```
 
 ## Results
