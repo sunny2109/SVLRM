@@ -2,16 +2,32 @@
 
 ## Dependencies
 
-- Python 3.8
+- Python = 3.8
 - PyTorch = 1.5
+- TensorBoard
 - numpy
 - os
 - cv2
+- PIL
 - glob
 - logging
 
 ## Training
-I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 2 days for 20w iterations.The training strategy is the same as paper.
+I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 10 hours for 50w iterations. Except for learning rate update method, the ohter training strategies is the same as paper. We use the following manner for updating lr:
+```bash
+lr_ = opt.lr * (0.5 ** (epoch // opt.decay_step))
+for param_group in optim.param_groups:
+    param_group['lr'] = lr_
+```
+The author uses poly policy:
+```bash
+lr_ = opt.lr * (1 - float(curr_step) / opt.n_iters)**2
+for param_group in optim.param_groups:
+    param_group['lr'] = lr_
+```
+
+- Command
+
 ```bash
 #x4
 python train.py --upscaling_factor 4
@@ -24,7 +40,7 @@ python train.py --upscaling_factor 16
 ## Testing
 
 ```bash
-python test.py --upscaling_factor 8 --model weights/X8/model_195000_iter.pth
+python test.py --upscaling_factor 8 --model weights/X8/model_10000_epoch.pth
 ```
 
 ## Results
