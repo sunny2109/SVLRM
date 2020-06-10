@@ -52,7 +52,7 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 
 - Quantitative results (RMSE)
 
-| depth image SR | SVLRM (paper) | Ours | 
+| Depth Image SR | SVLRM (paper) | Ours | 
 | :----- | :-----: | :-----: | 
 | x4 | 1.74 | 1.66738 |
 | x8 | 5.59 | 3.20587 | 
