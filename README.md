@@ -61,26 +61,25 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 - Visual results (X8 depth sr)
 
 on the left is output of the model, on the right is the corresponding ground truth image
-<img src="./results/X8/001065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
+<img src="./results/X8/065.png" width="400"/> <img src="./results/gt/001065.png" width="400"/>
 
-img_001065  RMSE:3.2915470145958894 || PSNR:37.78280235489618 || SSIM:0.9761888256026665
+img_001065 || RMSE:2.7260 || PSNR:39.4204 || SSIM:0.9820
 
-<img src="./results/X8/001101.png" width="400"/> <img src="./results/gt/001101.png" width="400"/>
+<img src="./results/X8101.png" width="400"/> <img src="./results/gt/001101.png" width="400"/>
 
-img_001101  RMSE:5.210280611855403 || PSNR:33.79358133117786 || SSIM:0.9628326188482944
+img_001101 || RMSE:3.9308 || PSNR:36.2413 || SSIM:0.9749
 
-<img src="./results/X8/001215.png" width="400"/> <img src="./results/gt/001215.png" width="400"/>
+<img src="./results/X8/215.png" width="400"/> <img src="./results/gt/001215.png" width="400"/>
 
-img_001215  RMSE:4.1548492643583925 || PSNR:35.75969815984982 || SSIM:0.9701610108526342
+img_001215  || RMSE:2.7663 || PSNR:39.2927 || SSIM:0.9838
 
-<img src="./results/X8/001320.png" width="400"/> <img src="./results/gt/001320.png" width="400"/>
+<img src="./results/X8/320.png" width="400"/> <img src="./results/gt/001320.png" width="400"/>
 
-img_001320  RMSE:6.202878047820046 || PSNR:32.278938753328994 || SSIM:0.9564319583736038
+img_001320 || RMSE:3.8851 || PSNR:36.3428 || SSIM:0.9762
 
-<img src="./results/X8/001436.png" width="400"/> <img src="./results/gt/001436.png" width="400"/>
+<img src="./results/X8/436.png" width="400"/> <img src="./results/gt/001436.png" width="400"/>
 
-img_001436  RMSE:4.407425071944234 || PSNR:35.24710485172616 || SSIM:0.9789862490518304
-
+img_001436 || RMSE:3.4263 || PSNR:37.4344 || SSIM:0.9871
 ## Acknowledgements
 - [SVLRM_matlab](https://www.dropbox.com/s/1z9ps20welw3c9a/CVPR19_SV_code.zip?dl=0)
 - [SVLRM_Pytorch](https://github.com/curlyqian/SVLRM)
