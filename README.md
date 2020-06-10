@@ -58,9 +58,8 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 | x8 | 5.59 | 3.20587 | 
 | x16 | 7.23 | 5.82709 | 
 
-Our all models results can download [Baidu Cloud](https://pan.baidu.com/s/16R5kPtLyv-pOVzOcb5_aKQ)  code: h39w or [Google Drive](https://drive.google.com/drive/folders/1FGMNWsgj6gSlrWeXqfYNfSR9nC7sUMVT)
+Our all models results can download [Baidu Cloud](https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA)  code: drkb or [Google Drive](https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
 
-Our all models results can download [Baidu Cloud] (https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA) code: drkb or [Google Drive]  (https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
 
 - Visual results (X8 depth sr)
 
