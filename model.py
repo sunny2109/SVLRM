@@ -22,14 +22,13 @@ class SVLRM(nn.Module):
                 m.weight.data.data.normal_(0, math.sqrt(2.0 / n))
                 nn.init.constant_(m.bias, 0)
 
-    def forward(self, img_input, img_guide):
-        input_tensor = torch.cat((img_input, img_guide), dim=1)
-        param = F.leaky_relu(self.first_layer(input_tensor), 0.1)
+    def forward(self, input_):
+        param = F.leaky_relu(self.first_layer(input_), 0.1)
         param = self.feature_block(param)
         param = self.final_layer(param)
 
         param_alpha, param_beta = param[:, :1, :, :], param[:, 1:, :, :]
-        output = param_alpha * img_guide + param_beta
+        output = param_alpha * input_[:, 1:, :, :] + param_beta
 
         return output, param_alpha, param_beta
 
@@ -49,10 +48,11 @@ class SVLRM(nn.Module):
 if __name__=='__main__':
     img_input = torch.randn(1, 1, 6, 6)
     img_guide = torch.ones(1, 1, 6, 6)
+    input_ = torch.cat((img_inpu, img_guide), dim=1)
 
     network_s = SVLRM()
     # network_s = network_s.apply(weights_init)
-    img_out, param_alpha, param_beta = network_s(img_input, img_guide)
+    img_out, param_alpha, param_beta = network_s(input_)
     print(network_s)
     print("theta {0} '\n' beta{1}".format(param_alpha, param_beta))
     print(param_alpha.size(), param_beta.size())
