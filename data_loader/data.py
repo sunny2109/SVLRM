@@ -20,4 +20,4 @@ def get_test_set(dataset, upscale_factor=4):
     test_dir = join(dataset, "RGBD_data_test")
 
     return DatasetFromFolder(test_dir,
-                             upscale_factor=upscale_factor, patch_size=patch_size)
+                             upscale_factor=upscale_factor)
