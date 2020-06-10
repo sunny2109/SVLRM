@@ -62,4 +62,4 @@ img_001436  RMSE:4.407425071944234 || PSNR:35.24710485172616 || SSIM:0.978986249
 
 ## Acknowledgements
 - [SVLRM_matlab](https://www.dropbox.com/s/1z9ps20welw3c9a/CVPR19_SV_code.zip?dl=0)
-- [SVLRM_Pytorcg](https://github.com/curlyqian/SVLRM)
+- [SVLRM_Pytorch](https://github.com/curlyqian/SVLRM)
