@@ -13,7 +13,7 @@
 - logging
 
 ## Training
-I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 10 hours for 50w iterations. The training strategies are the same as paper except for the learning rate updating method. We update lr in the following manner:
+I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 9 hours for 50w iterations. The training strategies are the same as paper except for the learning rate updating method. We update lr in the following manner:
 ```bash
 lr_ = opt.lr * (0.5 ** (epoch // opt.decay_step))
 for param_group in optim.param_groups:
@@ -58,7 +58,7 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 | x8 | 5.59 | 3.20587 | 
 | x16 | 7.23 | 5.82709 | 
 
-Our all models results can download [Baidu Cloud](https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA code: drkb or [Google Drive](https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
+Our all models results can download [Baidu Cloud] (https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA code: drkb or [Google Drive]  (https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
 
 - Visual results (X8 depth sr)
 
