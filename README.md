@@ -30,11 +30,11 @@ for param_group in optim.param_groups:
 
 ```bash
 #x4
-python train.py --upscaling_factor 4
+python train.py --upscaling_factor 4 --crop
 #x8
-python train.py --upscaling_factor 8
+python train.py --upscaling_factor 8 --crop
 #x16
-python train.py --upscaling_factor 16
+python train.py --upscaling_factor 16 --crop
 ```
 
 ## Testing
