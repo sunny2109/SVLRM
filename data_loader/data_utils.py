@@ -40,9 +40,9 @@ class DatasetFromFolder(data.Dataset):
         # data argumentation
         if self.crop:
             input = RandomCrop(self.patch_size)(input)  #obtain an image patch
-            input = RandomHorizontalFlip()(input) # V_Flip
-            input = RandomVerticalFlip()(input) # H_Flip
-            input = RandomRotation(180)(input) # Random Rotate
+            input = RandomHorizontalFlip()(input) 
+            input = RandomVerticalFlip()(input) 
+            input = RandomRotation(180)(input)
         
         input_tensor = ToTensor()(input)
         rgb_tensor = torch.zeros(3,input_tensor.shape[1],input_tensor.shape[2])
