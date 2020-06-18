@@ -27,8 +27,7 @@ def load_img(filepath):
 class DatasetFromFolder(data.Dataset):
     def __init__(self, image_dir, upscale_factor=4, patch_size=64, crop=None):
         super(DatasetFromFolder, self).__init__()
-        self.image_filenames = [join(image_dir, x)
-                                for x in sorted(listdir(image_dir)) if is_image_file(x)]  #文件名列表
+        self.image_filenames = [join(image_dir, x) for x in sorted(listdir(image_dir)) if is_image_file(x)]
         self.image_filenames.sort()
 
         self.crop = crop
