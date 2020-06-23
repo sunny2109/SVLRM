@@ -6,10 +6,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-from data_loader.data  import get_test_set
+from data import DataGenerator
 from torch.utils.data import DataLoader
 from model import SVLRM as Net
-from utils import save_img
+from utils import save_img, calc_rmse_tensor
 
 if __name__ == '__main__':
     # argparse for additional flags for experiment
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     parser.add_argument('--workers', type=int, default=16)
     parser.add_argument('--n_gpus', type=int, default=1)
     parser.add_argument('--gpu_mode', type=bool, default=True)
-    parser.add_argument('--test_data_dir', type=str, default='./dataset/RGBD/')
+    parser.add_argument('--test_data_dir', type=str, default='./dataset/test_depth_sr/')
     parser.add_argument('--result_save_dir', type=str, default='./results/test/')
     parser.add_argument('--result_alpha_dir', type=str, default='./results/test/alpha')
     parser.add_argument('--result_beta_dir', type=str, default='./results/test/beta')
@@ -36,9 +36,12 @@ if __name__ == '__main__':
 
     # add code for datasets (we always use train and validation/ test set)
     print("===> Loading datasets")
-    # data_set = TestDataGenerator(data_dir= opt.test_data_dir, upscaling_factor = opt.upscaling_factor)
-    data_test = get_test_set(dataset=opt.test_data_dir, upscale_factor=opt.upscaling_factor)
-    test_data = DataLoader(dataset=data_test, batch_size=opt.test_batch_size, num_workers=opt.workers, shuffle=False)
+    
+    test_data_test = DataGenerator(data_dir= opt.test_data_dir, 
+                              upscaling_factor = opt.upscaling_factor, 
+                              data_aug =False, 
+                              crop = False)
+    test_data = DataLoader(dataset=test_data_test, batch_size=opt.test_batch_size, num_workers=opt.workers, shuffle=False)
 
     # instantiate network (which has been imported from *networks.py*)
     print("===> Building model")
@@ -58,18 +61,33 @@ if __name__ == '__main__':
     def eval():
         net.eval()
         n_count, n_total = 1, len(test_data)
+        mean_rmse = 0
         for batch in test_data:
-            input_ = Variable(batch[0])
-            input_ = input_.cuda()
+            target, lr_data, guided_data = batch[0], batch[1], batch[2]
+            
+            # lr_data = lr_data.type(torch.FloatTensor).cuda()
+            # guided_data = guided_data.type(torch.FloatTensor).cuda()
+            # target = target.type(torch.FloatTensor).cuda()
+            lr_data = lr_data.cuda()
+            guided_data = guided_data.cuda()
+            target = target.cuda()  
+             
     
             t0 = time.time()
             with torch.no_grad():
-                results, param_alpha, param_beta = net(input_)
+                results, param_alpha, param_beta = net(lr_data, guided_data)
+                rmse = calc_rmse_tensor(results, target)
+                mean_rmse += rmse
             t1 = time.time()
+            
+            image_name = test_data_test.imagefilenames[n_count-1]
+
             print("===> Processing: {}/{} || Timer: {} sec.".format(n_count, n_total, (t1 - t0)))
-            save_img(results.cpu(), n_count, opt.result_save_dir, opt.upscaling_factor)
-            save_img(param_alpha.cpu(), n_count, opt.result_alpha_dir, opt.upscaling_factor)
-            save_img(param_beta.cpu(), n_count, opt.result_beta_dir, opt.upscaling_factor)
+            save_img(results.cpu(), image_name, opt.result_save_dir, opt.upscaling_factor)
+            save_img(param_alpha.cpu(), image_name, opt.result_alpha_dir, opt.upscaling_factor)
+            save_img(param_beta.cpu(), image_name, opt.result_beta_dir, opt.upscaling_factor)
             n_count += 1
+        mean_rmse /= len(test_data)
+        print("AVG RMSE: {:.4f}".format(mean_rmse))
         print('Done!')
 eval()
