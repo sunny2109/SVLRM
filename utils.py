@@ -19,25 +19,22 @@ def print_network(net):
     print(net)
     print('Total number of parameters: {}'.format(num_params))
 
-def save_model(model, epoch, snapshot_dir, upscaling_factor):
+def save_model(model, iter, snapshot_dir, upscaling_factor):
     if isinstance(model, torch.nn.DataParallel):
         model_state_dict = model.module.state_dict()
     else:
         model_state_dict = model.state_dict()
     
-    scale = 'X' + str(upscaling_factor)
+    scale = 'X{}'.format(upscaling_factor)
     save_dir = os.path.join(snapshot_dir, scale)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     
-    torch.save(model.state_dict(), save_dir +'/'+ 'model_{:03d}_epoch.pth'.format(epoch))
+    torch.save(model.state_dict(), save_dir +'/'+ 'model_{:06d}_iter.pth'.format(iter))
     print('The SR model is saved.')
 
 
 #### Image Processing
-'''
-inspired by Kai Zhang (github: https://github.com/cszn)
-'''
 def imread_uint(path, n_channels=3):
     #  input: path
     # output: HxWx3(RGB or GGG), or HxWx1 (G)
@@ -52,18 +49,19 @@ def imread_uint(path, n_channels=3):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # RGB
     return img
 
-#### save image
+#### Save Image
 def save_img(img, img_name, result_save_dir, upscaling_factor):
     save_img = img.squeeze().float().clamp_(0, 1).cpu()
     save_img = (save_img * 255).numpy()
     # print(save_img.shape)
-    scale = 'X' + str(upscaling_factor)
+    scale = 'X{}'.format(upscaling_factor)
     # save img
     save_dir=os.path.join(result_save_dir, scale)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
         
-    save_fn = save_dir +'/'+ '{:03d}.png'.format(img_name)
+    # save_fn = save_dir +'/'+ '{:03d}.png'.format(img_name)
+    save_fn = os.path.join(save_dir, img_name)
     cv2.imwrite(save_fn, save_img)
     print('Saving!')
 
@@ -171,7 +169,7 @@ def log(*args, **kwargs):
 '''
 # ===============================
 # logger
-# logger_name = None = 'base' ???
+# logger_name = None = 'base'
 # ===============================
 '''
 
