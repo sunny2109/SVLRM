@@ -13,18 +13,7 @@
 - logging
 
 ## Training
-I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 9 hours for 50w iterations. The training strategies are the same as paper except for the learning rate updating method. We update lr in the following manner:
-```bash
-lr_ = opt.lr * (0.5 ** (epoch // opt.decay_step))
-for param_group in optim.param_groups:
-    param_group['lr'] = lr_
-```
-The author uses poly policy:
-```bash
-lr_ = opt.lr * (1 - float(curr_step) / opt.n_iters)**2
-for param_group in optim.param_groups:
-    param_group['lr'] = lr_
-```
+I trained and tested the model on a single NVIDIA RTX 2080Ti GPU, and this process took about 9 hours for 50w iterations. The training strategies are the same as paper.
 
 - Command
 
