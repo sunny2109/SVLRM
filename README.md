@@ -52,11 +52,11 @@ python test.py --upscaling_factor 16 --model weights/X16/model_10000_epoch.pth
 
 - Quantitative results (RMSE)
 
-| Depth Image SR | SVLRM (paper) | Ours | 
+| Depth Image SR | SVLRM (paper) | 5×10^5 iterations | 9×10^4 iterations |
 | :----- | :-----: | :-----: | 
-| x4 | 1.74 | 1.66738 |
-| x8 | 5.59 | 3.20587 | 
-| x16 | 7.23 | 5.82709 | 
+| x4 | 1.74 | 1.66738 | 1.8039 |
+| x8 | 5.59 | 3.20587 | 3.3889 |
+| x16 | 7.23 | 5.82709 | 6.0919 |
 
 Our all models results can download from [Baidu Cloud](https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA)  code: drkb or [Google Drive](https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
 
