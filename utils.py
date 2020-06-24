@@ -30,7 +30,7 @@ def save_model(model, iter, snapshot_dir, upscaling_factor):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     
-    torch.save(model.state_dict(), save_dir +'/'+ 'model_{:06d}_iter.pth'.format(iter))
+    torch.save(model_state_dict, save_dir +'/'+ 'model_{:06d}_iter.pth'.format(iter))
     print('The SR model is saved.')
 
 
