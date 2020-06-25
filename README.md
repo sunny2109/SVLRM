@@ -13,7 +13,7 @@
 - logging
 
 ## Training
-I trained and tested the model on a single NVIDIA RTX 2080Ti GPU. The training strategies are the same as paper.
+I trained and tested the model on a single NVIDIA RTX 2080Ti GPU. The training strategies are same as the paper.
 
 - Command
 
