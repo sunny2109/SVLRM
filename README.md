@@ -47,9 +47,9 @@ python test.py --upscaling_factor 16 --model weights/X16/model_192600_iter.pth
 | x8 | 5.59 | 3.2172|
 | x16 | 7.23 | 5.8599 |
 
-/*
-Our all models results can download from [Baidu Cloud](https://pan.baidu.com/s/17Myh_xhocOFs7sgzqNvhUA)  code: drkb or [Google Drive](https://drive.google.com/drive/folders/17ADNrYqn7Fj0IhuefBxSKcaKyHrfJan0?usp=sharing)
-*/
+
+Our all models results can download from [Baidu Cloud](https://pan.baidu.com/s/1UDMUZ_qHpf8-n3RUtyDpOw)  code: 788x or [Google Drive](https://drive.google.com/file/d/14lOXxvtq9BPwSAiXuVM_CeV5VYLJHHUv/view?usp=sharing)
+
 
 - Visual results (X8 depth sr)
 
